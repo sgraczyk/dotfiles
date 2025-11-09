@@ -10,6 +10,13 @@ if ! command -v stow &> /dev/null; then
     exit 1
 fi
 
+# Check if Oh My Zsh is installed
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Oh My Zsh is not installed. Installing..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    echo "Oh My Zsh installed successfully!"
+fi
+
 # Backup existing files
 backup_if_exists() {
     local file="$1"

@@ -29,6 +29,7 @@ cd ~/Projects/sgraczyk/dotfiles
 ```
 
 The install script will:
+- Install Oh My Zsh automatically (if not already installed)
 - Backup existing config files (adds `.backup` suffix)
 - Use GNU Stow to symlink configs to your home directory
 - Keep your dotfiles organized by application
