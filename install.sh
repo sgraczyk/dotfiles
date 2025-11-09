@@ -15,6 +15,13 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Oh My Zsh is not installed. Installing..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     echo "Oh My Zsh installed successfully!"
+
+    # Remove the default .zshrc created by Oh My Zsh installer
+    # We'll be using our own custom .zshrc from the dotfiles repo
+    if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+        echo "Removing default Oh My Zsh .zshrc (we'll use our custom one)..."
+        rm "$HOME/.zshrc"
+    fi
 fi
 
 # Backup existing files
@@ -47,7 +54,9 @@ backup_if_exists "$HOME/.config/zed/settings.json"
 # Stow each package
 for package in "${PACKAGES[@]}"; do
     echo "Stowing $package..."
-    stow -v "$package" -t "$HOME"
+    # Use --no-folding to avoid conflicts with existing directories
+    # Use --override to handle .DS_Store and other system files
+    stow -v --no-folding --override='\.DS_Store' "$package" -t "$HOME"
 done
 
 echo ""
