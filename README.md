@@ -33,15 +33,17 @@ The install script will:
 - Use GNU Stow to symlink configs to your home directory
 - Keep your dotfiles organized by application
 
-### First-time setup
+### Powerlevel10k Configuration
 
-After installation, configure Powerlevel10k:
+The repo includes a pre-configured `.p10k.zsh` with my personal prompt preferences. After running `./install.sh`, your prompt will match my setup automatically.
+
+To customize your own prompt style, run:
 
 ```bash
 p10k configure
 ```
 
-This will walk you through customizing your prompt style.
+This will walk you through the configuration wizard and update your `~/.p10k.zsh`.
 
 ## Managing with Stow
 
@@ -67,7 +69,7 @@ Each subdirectory is a "stow package" that mirrors your home directory:
 
 ```
 dotfiles/
-├── zsh/          → ~/.zshrc, ~/.zshenv
+├── zsh/          → ~/.zshrc, ~/.zshenv, ~/.p10k.zsh
 ├── git/          → ~/.gitconfig
 ├── aerospace/    → ~/.aerospace.toml
 ├── finicky/      → ~/.finicky.js
