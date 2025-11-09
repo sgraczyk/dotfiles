@@ -1,0 +1,48 @@
+#!/bin/bash
+# Dotfiles installer using GNU Stow
+
+DOTFILES_DIR="$HOME/Projects/sgraczyk/dotfiles"
+
+# Check if stow is installed
+if ! command -v stow &> /dev/null; then
+    echo "Error: GNU Stow is not installed"
+    echo "Install it with: brew install stow"
+    exit 1
+fi
+
+# Backup existing files
+backup_if_exists() {
+    local file="$1"
+    if [ -e "$file" ] && [ ! -L "$file" ]; then
+        echo "Backing up $file to $file.backup"
+        mv "$file" "$file.backup"
+    fi
+}
+
+cd "$DOTFILES_DIR" || exit 1
+
+echo "Installing dotfiles with GNU Stow..."
+
+# List of available packages
+PACKAGES=("zsh" "git" "aerospace" "finicky" "oh-my-zsh")
+
+# Backup existing files before stowing
+backup_if_exists "$HOME/.zshrc"
+backup_if_exists "$HOME/.zshenv"
+backup_if_exists "$HOME/.gitconfig"
+backup_if_exists "$HOME/.aerospace.toml"
+backup_if_exists "$HOME/.finicky.js"
+backup_if_exists "$HOME/.oh-my-zsh/custom/themes/gruvbox.zsh-theme"
+
+# Stow each package
+for package in "${PACKAGES[@]}"; do
+    echo "Stowing $package..."
+    stow -v "$package" -t "$HOME"
+done
+
+echo ""
+echo "Done! Your dotfiles are now managed by GNU Stow."
+echo "Restart your terminal or run: source ~/.zshrc"
+echo ""
+echo "To unstow a package: stow -D <package>"
+echo "To restow a package: stow -R <package>"
