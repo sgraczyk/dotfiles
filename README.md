@@ -4,7 +4,7 @@ Personal configuration files for macOS, managed with [GNU Stow](https://www.gnu.
 
 ## What's included
 
-- **Shell**: Zsh with Oh My Zsh (Gruvbox theme)
+- **Shell**: Zsh with Oh My Zsh (Powerlevel10k theme)
 - **Editor**: Zed (Gruvbox Dark Hard theme)
 - **Window Manager**: AeroSpace
 - **Browser Router**: Finicky
@@ -32,6 +32,16 @@ The install script will:
 - Backup existing config files (adds `.backup` suffix)
 - Use GNU Stow to symlink configs to your home directory
 - Keep your dotfiles organized by application
+
+### First-time setup
+
+After installation, configure Powerlevel10k:
+
+```bash
+p10k configure
+```
+
+This will walk you through customizing your prompt style.
 
 ## Managing with Stow
 
