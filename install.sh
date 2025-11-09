@@ -51,12 +51,20 @@ backup_if_exists "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
 backup_if_exists "$HOME/.config/karabiner/karabiner.json"
 backup_if_exists "$HOME/.config/zed/settings.json"
 
+# Remove .DS_Store files that could cause conflicts
+echo "Cleaning up .DS_Store files..."
+find "$HOME" -maxdepth 1 -name ".DS_Store" -delete 2>/dev/null || true
+find "$HOME/.oh-my-zsh" -name ".DS_Store" -delete 2>/dev/null || true
+find "$HOME/.config" -name ".DS_Store" -delete 2>/dev/null || true
+
+# Remove any old .backup directories that might cause conflicts
+echo "Cleaning up old backup directories..."
+rm -rf "$HOME/.oh-my-zsh/custom/themes/powerlevel10k.backup" 2>/dev/null || true
+
 # Stow each package
 for package in "${PACKAGES[@]}"; do
     echo "Stowing $package..."
-    # Use --no-folding to avoid conflicts with existing directories
-    # Use --override to handle .DS_Store and other system files
-    stow -v --no-folding --override='\.DS_Store' "$package" -t "$HOME"
+    stow -v --no-folding "$package" -t "$HOME"
 done
 
 echo ""
