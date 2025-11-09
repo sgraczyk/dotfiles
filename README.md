@@ -5,8 +5,10 @@ Personal configuration files for macOS, managed with [GNU Stow](https://www.gnu.
 ## What's included
 
 - **Shell**: Zsh with Oh My Zsh (Gruvbox theme)
+- **Editor**: Zed (Gruvbox Dark Hard theme)
 - **Window Manager**: AeroSpace
 - **Browser Router**: Finicky
+- **Keyboard Customization**: Karabiner-Elements
 - **Version Control**: Git
 - **Node.js**: Volta
 
@@ -46,7 +48,7 @@ stow -D git
 stow -R aerospace
 
 # Install all packages
-stow zsh git aerospace finicky oh-my-zsh
+stow zsh git aerospace finicky oh-my-zsh karabiner zed
 ```
 
 ## Directory Structure
@@ -59,6 +61,8 @@ dotfiles/
 ├── git/          → ~/.gitconfig
 ├── aerospace/    → ~/.aerospace.toml
 ├── finicky/      → ~/.finicky.js
+├── karabiner/    → ~/.config/karabiner/karabiner.json
+├── zed/          → ~/.config/zed/settings.json
 └── oh-my-zsh/    → ~/.oh-my-zsh/custom/themes/
 ```
 
