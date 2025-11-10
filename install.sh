@@ -42,5 +42,13 @@ echo "Next steps:"
 echo "1. Restart your terminal or run: source ~/.zshrc"
 echo "2. (Optional) Run 'p10k configure' to customize your Powerlevel10k prompt"
 echo ""
+echo "Raycast Snippets:"
+if [ -f "$DOTFILES_DIR/raycast/snippets.json" ]; then
+    echo "  ✓ Snippets found: raycast/snippets.json"
+    echo "    Import with: cd raycast && ./import-snippets.sh"
+else
+    echo "  ℹ No snippets found. Run 'Export Snippets' in Raycast and save to raycast/snippets.json"
+fi
+echo ""
 echo "To unstow a package: stow -D <package>"
 echo "To restow a package: stow -R <package>"
