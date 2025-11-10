@@ -45,7 +45,7 @@ echo ""
 echo "Raycast Snippets:"
 if [ -f "$DOTFILES_DIR/raycast/snippets.json" ]; then
     echo "  ✓ Snippets found: raycast/snippets.json"
-    echo "    Import with: cd raycast && ./import-snippets.sh"
+    echo "    Import with: cd $DOTFILES_DIR/raycast && ./import-snippets.sh"
 else
     echo "  ℹ No snippets found. Run 'Export Snippets' in Raycast and save to raycast/snippets.json"
 fi

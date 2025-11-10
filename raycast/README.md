@@ -35,8 +35,7 @@ After cloning your dotfiles, import your snippets:
 
 ### Option 1: Use the helper script (easiest)
 ```bash
-cd ~/Projects/sgraczyk/dotfiles/raycast
-./import-snippets.sh
+cd ~/Projects/sgraczyk/dotfiles/raycast && ./import-snippets.sh
 ```
 This will open the Import Snippets command and reveal the file in Finder.
 
@@ -52,6 +51,7 @@ When you add or modify snippets in Raycast:
 
 1. Export again: Open Raycast → `Export Snippets`
 2. Replace the existing `snippets.json` in this directory
+   - **Note**: Your old version is safely tracked in git history, so no separate backup is needed
 3. Commit the changes:
    ```bash
    cd ~/Projects/sgraczyk/dotfiles
@@ -75,6 +75,16 @@ You can also edit `snippets.json` directly in your text editor:
 ```
 
 After editing, use the Import Snippets command to load the updated snippets into Raycast.
+
+### Security Warning
+
+⚠️ **Important**: Be careful not to commit sensitive information to your repository:
+- API keys or tokens
+- Passwords or credentials
+- Private IP addresses or internal URLs (if repo is public)
+- Personal information you don't want public
+
+Consider using a private repository or keeping sensitive snippets in a separate, gitignored file.
 
 ## Alternative: Full Configuration Export
 

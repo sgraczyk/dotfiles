@@ -10,6 +10,13 @@ if [ ! -f "$SNIPPETS_FILE" ]; then
     exit 1
 fi
 
+# Check if Raycast is installed
+if [ ! -d "/Applications/Raycast.app" ]; then
+    echo "Warning: Raycast doesn't appear to be installed at /Applications/Raycast.app"
+    echo "Please install Raycast from https://www.raycast.com before importing snippets"
+    exit 1
+fi
+
 echo "Opening Raycast Import Snippets command..."
 echo "File location: $SNIPPETS_FILE"
 echo ""
