@@ -1,0 +1,37 @@
+[
+  {
+    "keyword": "@mail",
+    "text": "szymon@graczyk.dev",
+    "name": "My email"
+  },
+  {
+    "keyword": "@nip",
+    "text": "6422997504",
+    "name": "NIP"
+  },
+  {
+    "keyword": "$hip",
+    "text": "168.119.97.71",
+    "name": "Hetzner IP Address"
+  },
+  {
+    "keyword": "$ccu",
+    "text": "npm i -g @anthropic-ai/claude-code",
+    "name": "🤖 Claude Code - Update"
+  },
+  {
+    "keyword": "$ccd",
+    "text": "claude --dangerously-skip-permissions",
+    "name": "🤖 Claude Code - Dangerously Skip Permissions"
+  },
+  {
+    "keyword": "$crc",
+    "text": "@coderabbitai Please confirm that the above comment was properly addressed. If not, please propose further guidance.",
+    "name": "🐰 CodeRabbit confirm addressing comment"
+  },
+  {
+    "keyword": "$gsm",
+    "text": "gfa && gcm && gpr",
+    "name": "🪾 Git - switch to main/master with pull (rebase)"
+  }
+]

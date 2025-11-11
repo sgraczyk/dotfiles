@@ -9,6 +9,7 @@ Personal configuration files for macOS, managed with [GNU Stow](https://www.gnu.
 - **Window Manager**: AeroSpace
 - **Browser Router**: Finicky
 - **Keyboard Customization**: Karabiner-Elements
+- **Productivity**: Raycast (snippets, aliases, hotkeys)
 - **Version Control**: Git
 - **Node.js**: Volta
 
@@ -75,6 +76,7 @@ dotfiles/
 ├── aerospace/    → ~/.aerospace.toml
 ├── finicky/      → ~/.finicky.js
 ├── karabiner/    → ~/.config/karabiner/karabiner.json
+├── raycast/      → Raycast.rayconfig (import manually)
 ├── zed/          → ~/.config/zed/settings.json
 └── oh-my-zsh/    → ~/.oh-my-zsh/custom/themes/
 ```
@@ -85,3 +87,34 @@ dotfiles/
 - Proper PATH ordering (Homebrew → Volta → others)
 - Organized by application using Stow
 - Easy to enable/disable specific configs
+
+## Raycast Snippets
+
+Raycast snippets (text expansions) are stored as human-readable JSON for easy version control and editing.
+
+### First Time Setup
+
+Export your snippets to include them in your dotfiles:
+
+1. Open Raycast and run: `Export Snippets`
+2. Save as: `~/Projects/sgraczyk/dotfiles/raycast/snippets.json`
+3. Commit to your repository
+
+### On New Machines
+
+After cloning your dotfiles, import your snippets:
+
+```bash
+cd ~/Projects/sgraczyk/dotfiles/raycast
+./import-snippets.sh
+```
+
+Or manually: Open Raycast → `Import Snippets` → Select `snippets.json`
+
+### Benefits
+
+- **Human-readable**: Edit snippets directly in JSON
+- **Version controlled**: Track changes in git
+- **Easy to sync**: Import once on new machines
+
+See `raycast/README.md` for detailed instructions and alternative export options.
