@@ -5,8 +5,9 @@ Personal configuration files for macOS, managed with [GNU Stow](https://www.gnu.
 ## What's included
 
 - **Shell**: Zsh with Oh My Zsh (Powerlevel10k theme)
-- **Editor**: Zed (Gruvbox Dark Hard theme)
-- **Window Manager**: AeroSpace
+- **Editor**: Helix (LSP-based, terminal) + Zed (Gruvbox Dark Hard theme)
+- **Terminal**: Ghostty (Gruvbox Dark Hard, JetBrains Mono Nerd Font)
+- **Multiplexer**: Zellij (`dev` layout: Helix + shell + lazygit)
 - **Browser Router**: Finicky
 - **Keyboard Customization**: Karabiner-Elements
 - **Productivity**: Raycast (snippets, aliases, hotkeys)
@@ -59,10 +60,10 @@ stow zsh
 stow -D git
 
 # Reinstall a package (useful after edits)
-stow -R aerospace
+stow -R helix
 
 # Install all packages
-stow zsh git aerospace finicky oh-my-zsh karabiner zed
+stow zsh git finicky oh-my-zsh karabiner zed helix zellij ghostty
 ```
 
 ## Directory Structure
@@ -73,7 +74,9 @@ Each subdirectory is a "stow package" that mirrors your home directory:
 dotfiles/
 ├── zsh/          → ~/.zshrc, ~/.zshenv, ~/.p10k.zsh
 ├── git/          → ~/.gitconfig
-├── aerospace/    → ~/.aerospace.toml
+├── helix/        → ~/.config/helix/{config,languages}.toml
+├── zellij/       → ~/.config/zellij/layouts/dev.kdl
+├── ghostty/      → ~/.config/ghostty/config
 ├── finicky/      → ~/.finicky.js
 ├── karabiner/    → ~/.config/karabiner/karabiner.json
 ├── raycast/      → Raycast.rayconfig (import manually)

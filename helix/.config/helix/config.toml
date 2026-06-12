@@ -1,0 +1,41 @@
+# Helix editor configuration
+# Docs: https://docs.helix-editor.com/configuration.html
+# Full option list: `hx --health` and `:config-open` inside the editor.
+
+theme = "default"
+
+[editor]
+line-number = "relative"     # relative numbers — quick 5j / 12k motions
+mouse = true
+bufferline = "multiple"      # show open buffers as a tab bar
+color-modes = true           # colorize the mode indicator in the statusline
+cursorline = true
+true-color = true
+rulers = [100]               # vertical guide at column 100
+text-width = 100
+completion-trigger-len = 1   # trigger LSP completion after 1 char
+auto-save = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false               # show hidden files (dotfiles) in Space f
+
+[editor.lsp]
+display-messages = true      # show LSP server messages in the statusline
+display-inlay-hints = true   # inline type/param hints (TS, Python)
+
+[editor.indent-guides]
+render = true
+character = "┊"
+
+[editor.soft-wrap]
+enable = true                # wrap long lines — handy for markdown
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator", "read-only-indicator"]
+center = []
+right = ["diagnostics", "selections", "register", "position", "file-encoding", "file-line-ending", "file-type"]

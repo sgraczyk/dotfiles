@@ -2,4 +2,28 @@
 	name = Szymon Graczyk
 	email = szymon@graczyk.dev
 [core]
-	editor = nano
+	editor = hx
+	excludesfile = /Users/sgraczyk/.gitignore_global
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = false
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	colorMoved = default
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[coderabbit]
+	machineId = cli/2b9ebf17227c4a47b857c4fcf6454559
+[fetch]
+	prune = true

@@ -1,0 +1,33 @@
+// Zellij layout "dev" — terminal IDE shell around Helix
+// Launch from a project directory:   zellij --layout dev
+//
+// Layout:
+//   ┌────────────────────────┬──────────────┐
+//   │                        │   shell      │  ← commands, Claude Code
+//   │        Helix           ├──────────────┤
+//   │      (editor)          │   lazygit    │  ← git: stage/commit/diff
+//   └────────────────────────┴──────────────┘
+//
+// Pane navigation (no clash with Helix): Alt + h/j/k/l
+// New pane: Alt+n · resize: Alt + +/- · zoom pane: Ctrl+p then z
+
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane size="65%" {
+            command "hx"
+            args "."
+        }
+        pane size="35%" split_direction="horizontal" {
+            pane name="shell"
+            pane name="git" {
+                command "lazygit"
+            }
+        }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
