@@ -27,7 +27,7 @@ cd "$DOTFILES_DIR" || exit 1
 echo "Installing dotfiles with GNU Stow..."
 
 # List of available packages
-PACKAGES=("zsh" "git" "aerospace" "finicky" "oh-my-zsh" "karabiner" "zed")
+PACKAGES=("zsh" "git" "finicky" "oh-my-zsh" "karabiner" "zed" "helix" "zellij" "ghostty")
 
 # Stow each package
 for package in "${PACKAGES[@]}"; do

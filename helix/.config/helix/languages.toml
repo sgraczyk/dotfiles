@@ -1,0 +1,44 @@
+# Helix language / LSP configuration
+# Most languages work automatically once their server is installed (Helix ships
+# a built-in default languages.toml). This file only holds overrides.
+# Check status: `hx --health <language>` (e.g. `hx --health python`).
+
+# --- Python: pyright (types) + ruff (lint + format) --------------------------
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+auto-format = true
+formatter = { command = "ruff", args = ["format", "-"] }
+
+# --- Markdown: marksman for links/navigation, but NO format-on-save ----------
+# Used for prose/notes — auto-format could reflow hand-written content. Disabled.
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+auto-format = false
+text-width = 100
+soft-wrap.enable = true
+
+# --- TOML: taplo formatting --------------------------------------------------
+[[language]]
+name = "toml"
+auto-format = true
+
+# --- Web (TS/JS/JSON/CSS/HTML/YAML) uses Helix's default config ---------------
+# typescript-language-server, vscode-*-language-server, yaml-language-server
+# are already detected. Format-on-save via the LSP:
+[[language]]
+name = "json"
+auto-format = true
+
+[[language]]
+name = "yaml"
+auto-format = true
