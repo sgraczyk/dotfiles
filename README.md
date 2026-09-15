@@ -10,7 +10,7 @@ Personal configuration files for macOS, managed with [GNU Stow](https://www.gnu.
 - **Multiplexer**: Zellij (`dev` layout: Helix + shell + lazygit)
 - **Browser Router**: Finicky
 - **Keyboard Customization**: Karabiner-Elements
-- **Productivity**: Raycast (snippets, aliases, hotkeys)
+- **Productivity**: Raycast (snippets, aliases, hotkeys), espanso (text expansion)
 - **Version Control**: Git
 - **Node.js**: Volta
 
