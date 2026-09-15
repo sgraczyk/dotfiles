@@ -11,6 +11,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 
 matches:
+  # Personal email. A work machine stows a second match file that also defines
+  # :email; espanso then offers both in a picker rather than silently choosing.
+  - trigger: ":email"
+    replace: "szymon@graczyk.dev"
+
   # Sync current repo: checkout default branch (main or master), fetch all, pull --rebase
   - trigger: ":gsync"
     replace: "(git checkout main || git checkout master) && git fetch --all && git pull --rebase"
