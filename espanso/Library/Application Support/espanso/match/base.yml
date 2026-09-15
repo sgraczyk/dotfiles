@@ -1,0 +1,24 @@
+# espanso match file - generic layer.
+#
+# Machine-agnostic snippets only: anything that would be equally useful on a
+# personal or a work machine. espanso loads every .yml in match/, so a work
+# machine can stow a second file (e.g. text.yml) alongside this one without
+# touching it.
+#
+# This repo is public - never put an employer's email, internal URLs, ticket
+# keys or repo names here.
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  # Sync current repo: checkout default branch (main or master), fetch all, pull --rebase
+  - trigger: ":gsync"
+    replace: "(git checkout main || git checkout master) && git fetch --all && git pull --rebase"
+
+  # Run Claude Code in "yolo" mode (skips permission prompts)
+  - trigger: ":cly"
+    replace: "claude --dangerously-skip-permissions"
+
+  # Run Codex CLI in "yolo" mode (bypasses approvals + sandbox)
+  - trigger: ":cxy"
+    replace: "codex --dangerously-bypass-approvals-and-sandbox"
