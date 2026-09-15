@@ -15,6 +15,7 @@ matches:
   # :email; espanso then offers both in a picker rather than silently choosing.
   - trigger: ":email"
     replace: "szymon@graczyk.dev"
+    label: "personal"
 
   # Sync current repo: checkout default branch (main or master), fetch all, pull --rebase
   - trigger: ":gsync"
